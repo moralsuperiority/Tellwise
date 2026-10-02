@@ -62,7 +62,7 @@ def score_transaction(r, tx):
     if n >= MIN_HISTORY and not r.sismember(merchants_key, tx["merchant"]) and amount > 3 * mean:
         add("NEW_MERCHANT_HIGH_AMOUNT", 10, "first time at this merchant and amount is over 3x the user's average")
 
-    # 5) Fraud-ring signal: one device touching many different accounts within an hour
+ 
     dkey = f"device:{tx['device_id']}:users"
     pipe = r.pipeline()
     pipe.sadd(dkey, uid)
