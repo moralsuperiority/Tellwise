@@ -39,7 +39,7 @@ ON CONFLICT (txn_id) DO NOTHING
 
 
 def process_batch(batch_df, batch_id):
-    rows = [row.asDict() for row in batch_df.orderBy("ts").collect()]  # oldest first
+    rows = [row.asDict() for row in batch_df.orderBy("ts").collect()]  
     if not rows:
         return
     out = []
