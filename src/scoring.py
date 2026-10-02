@@ -59,7 +59,7 @@ def score_transaction(r, tx):
         if km > 200 and speed > 900:
             add("IMPOSSIBLE_TRAVEL", 50, f"{km:.0f} km from last trusted location in {hours * 60:.1f} min ({speed:.0f} km/h)")
 
-    # 4) Brand-new merchant combined with a bigger-than-usual amount
+    
     if n >= MIN_HISTORY and not r.sismember(merchants_key, tx["merchant"]) and amount > 3 * mean:
         add("NEW_MERCHANT_HIGH_AMOUNT", 10, "first time at this merchant and amount is over 3x the user's average")
 
