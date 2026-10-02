@@ -39,7 +39,7 @@ def score_transaction(r, tx):
         elif z > 3:
             add("AMOUNT_SPIKE", 40, f"amount is {z:.1f} std-devs above this user's normal (avg {mean:.0f})")
 
-    # 2) Velocity: transactions by this user in the last 10 seconds
+  
     rkey = f"user:{uid}:recent"
     pipe = r.pipeline()
     pipe.zremrangebyscore(rkey, 0, ts - 10)
