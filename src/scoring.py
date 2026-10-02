@@ -76,10 +76,7 @@ def score_transaction(r, tx):
     score = min(100, sum(x["points"] for x in reasons))
     decision = "BLOCK" if score >= BLOCK_AT else "REVIEW" if score >= REVIEW_AT else "ALLOW"
 
-    # Poisoning protection v2 (clipped learning):
-    # - amount stats learn from every non-BLOCK transaction, but a suspicious amount
-    #   is clipped to 3 std-devs above normal: it can nudge the baseline, never hijack it
-    # - location / merchant / last_ts only learn from fully trusted (ALLOW) transactions
+    
     if decision != "BLOCK":
         learn_amount = amount
         if n >= MIN_HISTORY:
