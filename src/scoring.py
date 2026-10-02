@@ -2,7 +2,7 @@
 so each alert is explainable. Per-user behaviour lives in Redis."""
 import math
 
-MIN_HISTORY = 5          # transactions needed before amount/travel checks kick in
+MIN_HISTORY = 5          # transactions needed before amount/travel checks k
 REVIEW_AT = 40
 BLOCK_AT = 80
 
