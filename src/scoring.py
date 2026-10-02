@@ -30,7 +30,7 @@ def score_transaction(r, tx):
     def add(code, points, detail):
         reasons.append({"code": code, "points": points, "detail": detail})
 
-    # 1) Amount far above this user's own normal (running mean/std via Welford)
+   
     if n >= MIN_HISTORY:
         std = max(math.sqrt(m2 / (n - 1)), 0.1 * mean, 1.0)
         z = (amount - mean) / std
