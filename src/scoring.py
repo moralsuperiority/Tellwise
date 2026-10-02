@@ -50,8 +50,7 @@ def score_transaction(r, tx):
     if count >= 5:
         add("VELOCITY_BURST", 40, f"{count} transactions in the last 10 seconds")
 
-    # 3) Impossible travel vs the last trusted transaction
-    #    (skipped until the user has some history, so a poisoned first transaction can heal)
+    
     if "last_ts" in p and n >= 2:
         km = haversine_km(float(p["last_lat"]), float(p["last_lon"]), tx["lat"], tx["lon"])
         hours = max((ts - float(p["last_ts"])) / 3600, 1 / 3600)
